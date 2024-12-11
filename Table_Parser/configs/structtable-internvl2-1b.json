@@ -1,0 +1,8 @@
+{
+  "model_type": "",
+  "model_name": "StructTable-InternVL2-1B",
+  "max_new_tokens": 1024,
+  "model_path": "",
+  "lmdeploy": false,
+  "flash_atten": false
+}

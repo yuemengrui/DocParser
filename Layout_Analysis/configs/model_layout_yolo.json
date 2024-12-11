@@ -1,6 +1,6 @@
 {
-  "model_type": "doclayout_yolo",
-  "model_name": "doclayout_yolo_v1",
+  "model_type": "doclayout-yolo",
+  "model_name": "doclayout-yolo-v1",
   "img_size": 1024,
   "model_path": "",
   "labels": [
