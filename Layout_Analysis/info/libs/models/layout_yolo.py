@@ -1,5 +1,6 @@
 # *_*coding:utf-8 *_*
 # @Author : YueMengRui
+import time
 import torch
 from ultralytics import YOLO
 from doclayout_yolo import YOLOv10
@@ -51,6 +52,7 @@ class LayoutYOLO:
         """
         :return: [[{'box': [x1,y1,x2,y2], 'label': '', 'score': 0.8}], []]
         """
+        start = time.time()
         resp = []
         preds = self.model.predict(images, imgsz=self.img_size, conf=conf, iou=iou, device=self.device)
         for r in preds:
@@ -70,4 +72,4 @@ class LayoutYOLO:
             temp.sort(key=lambda x: (x['box'][1], x['box'][0]))
             resp.append(temp)
 
-        return resp
+        return resp, time.time() - start
