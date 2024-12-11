@@ -55,6 +55,35 @@ services:
               device_ids: [ "0" ]
               capabilities: [ gpu ]
 
+  table_server:
+    container_name: table_server
+    image: registry.cn-beijing.aliyuncs.com/yuemengrui/ai:pytorch2.1.2-cuda12.1-cudnn8-ubuntu20.04-py311-0.2
+    command: [ "/bin/bash", "-c", "/workspace/Table_Parser/docker_run.sh" ]
+    volumes:
+      - ./Table_Parser:/workspace/Table_Parser
+      - ./Table_Parser/configs/structtable-internvl2-1b.json:/workspace/model_config.json
+    ports:
+      - "24682:24680"
+    restart: unless-stopped
+    networks:
+      - ainet
+    stdin_open: true
+    tty: true
+    healthcheck:
+      test: [ "CMD", "curl", "-f", "http://localhost:24680/ai/health" ]
+      interval: 60s
+      start_period: 60s
+      timeout: 10s
+      retries: 5
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              device_ids: [ "0" ]
+              capabilities: [ gpu ]
+
+
 
 networks:
   ainet:
