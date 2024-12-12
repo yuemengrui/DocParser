@@ -2,7 +2,7 @@
   "model_type": "",
   "model_name": "StructTable-InternVL2-1B",
   "max_new_tokens": 1024,
-  "model_path": "",
+  "model_path": "/workspace/models/StructTable-InternVL2-1B",
   "lmdeploy": false,
   "flash_atten": false
 }

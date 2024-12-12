@@ -87,14 +87,14 @@ services:
               capabilities: [ gpu ]
 
 
-  table_server:
-    container_name: table_server
+  table_server_internvl2_1b:
+    container_name: table_server_internvl2_1b
     image: registry.cn-beijing.aliyuncs.com/yuemengrui/ai:pytorch2.1.2-cuda12.1-cudnn8-ubuntu20.04-py311-0.2
     command: [ "/bin/bash", "-c", "/workspace/Table_Parser/docker_run.sh" ]
     volumes:
       - ./Table_Parser:/workspace/Table_Parser
       - ./Table_Parser/configs/structtable-internvl2-1b.json:/workspace/model_config.json
-      - model_path:/workspace/model_path
+      - ./Models/Table/StructTable-InternVL2-1B:/workspace/models/StructTable-InternVL2-1B
     ports:
       - "24682:24680"
     restart: unless-stopped
