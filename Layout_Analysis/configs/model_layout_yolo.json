@@ -2,7 +2,7 @@
   "model_type": "doclayout-yolo",
   "model_name": "doclayout-yolo-v1",
   "img_size": 1024,
-  "model_path": "",
+  "model_path": "/workspace/models/doclayout_yolo.pt",
   "labels": [
     "title",
     "plain text",

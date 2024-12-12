@@ -1,11 +1,12 @@
 services:
-  layout_server_1:
-    container_name: layout_server_1
+  layout_server_doclayoutyolo:
+    container_name: layout_server_doclayoutyolo
     image: registry.cn-beijing.aliyuncs.com/yuemengrui/ai:pytorch2.1.2-cuda12.1-cudnn8-ubuntu20.04-py311-0.2
     command: [ "/bin/bash", "-c", "/workspace/Layout_Analysis/docker_run.sh" ]
     volumes:
       - ./Layout_Analysis:/workspace/Layout_Analysis
       - ./Layout_Analysis/configs/model_layout_yolo.json:/workspace/model_config.json
+      - ./Models/Layout/doclayout_yolo.pt:/workspace/models/doclayout_yolo.pt
     ports:
       - "24680:24680"
     restart: unless-stopped
@@ -27,13 +28,14 @@ services:
               device_ids: [ "0" ]
               capabilities: [ gpu ]
 
-  layout_server_2:
-    container_name: layout_server_2
+  layout_server_yolov10l:
+    container_name: layout_server_yolov10l
     image: registry.cn-beijing.aliyuncs.com/yuemengrui/ai:pytorch2.1.2-cuda12.1-cudnn8-ubuntu20.04-py311-0.2
     command: [ "/bin/bash", "-c", "/workspace/Layout_Analysis/docker_run.sh" ]
     volumes:
       - ./Layout_Analysis:/workspace/Layout_Analysis
       - ./Layout_Analysis/configs/model_yolov10l.json:/workspace/model_config.json
+      - ./Models/Layout/yolov10l.pt:/workspace/models/yolov10l.pt
     ports:
       - "24681:24680"
     restart: unless-stopped
@@ -55,6 +57,36 @@ services:
               device_ids: [ "0" ]
               capabilities: [ gpu ]
 
+  layout_server_yolom960:
+    container_name: layout_server_yolom960
+    image: registry.cn-beijing.aliyuncs.com/yuemengrui/ai:pytorch2.1.2-cuda12.1-cudnn8-ubuntu20.04-py311-0.2
+    command: [ "/bin/bash", "-c", "/workspace/Layout_Analysis/docker_run.sh" ]
+    volumes:
+      - ./Layout_Analysis:/workspace/Layout_Analysis
+      - ./Layout_Analysis/configs/model_yolom_960.json:/workspace/model_config.json
+      - ./Models/Layout/layout_m_960.pt:/workspace/models/layout_m_960.pt
+    ports:
+      - "24681:24680"
+    restart: unless-stopped
+    networks:
+      - ainet
+    stdin_open: true
+    tty: true
+    healthcheck:
+      test: [ "CMD", "curl", "-f", "http://localhost:24680/ai/health" ]
+      interval: 60s
+      start_period: 60s
+      timeout: 10s
+      retries: 5
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              device_ids: [ "0" ]
+              capabilities: [ gpu ]
+
+
   table_server:
     container_name: table_server
     image: registry.cn-beijing.aliyuncs.com/yuemengrui/ai:pytorch2.1.2-cuda12.1-cudnn8-ubuntu20.04-py311-0.2
@@ -62,6 +94,7 @@ services:
     volumes:
       - ./Table_Parser:/workspace/Table_Parser
       - ./Table_Parser/configs/structtable-internvl2-1b.json:/workspace/model_config.json
+      - model_path:/workspace/model_path
     ports:
       - "24682:24680"
     restart: unless-stopped
@@ -82,7 +115,6 @@ services:
             - driver: nvidia
               device_ids: [ "0" ]
               capabilities: [ gpu ]
-
 
 
 networks:

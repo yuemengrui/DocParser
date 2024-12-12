@@ -1,0 +1,18 @@
+{
+  "model_type": "yolo",
+  "model_name": "yolom-960",
+  "img_size": 960,
+  "model_path": "/workspace/models/layout_m_960.pt",
+  "labels": [
+    "directory",
+    "header",
+    "footer",
+    "title",
+    "text",
+    "table_caption",
+    "table",
+    "figure_caption",
+    "figure",
+    "seal"
+  ]
+}

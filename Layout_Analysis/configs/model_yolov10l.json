@@ -2,7 +2,7 @@
   "model_type": "yolo",
   "model_name": "yolov10l-v1",
   "img_size": 1024,
-  "model_path": "",
+  "model_path": "/workspace/models/yolov10l.pt",
   "labels": [
     "title",
     "plain text",
