@@ -6,10 +6,10 @@ from mylogger import logger
 from info.libs.models.internvl import InternVL
 
 
-class StructTable():
+class StructTable:
     def __init__(self, model_path='', device='cuda', dtype=torch.bfloat16, **kwargs):
         if not torch.cuda.is_available():
-            logger.warning(f'GPU not found, model load in CPU!! slow w~ww~www～～～')
+            logger.warning(f'GPU not found, model load in CPU!! super slow w~ww~www～～～')
             device = 'cpu'
             dtype = torch.float32
 
