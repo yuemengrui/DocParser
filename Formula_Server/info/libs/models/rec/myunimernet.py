@@ -1,6 +1,7 @@
 # *_*coding:utf-8 *_*
 # @Author : YueMengRui
 import os
+import time
 import torch
 import argparse
 import unimernet.tasks as tasks
@@ -39,6 +40,7 @@ class FormulaRecognitionUniMERNet:
             raise
 
     def predict(self, images, **kwargs):
+        start = time.time()
         results = []
         for image in images:
             # Process the image using the visual processor and prepare it for the model
@@ -50,4 +52,4 @@ class FormulaRecognitionUniMERNet:
 
             results.append(pred)
 
-        return results
+        return results, time.time() - start

@@ -1,0 +1,17 @@
+{
+  "det": {
+    "model_type": "yolo",
+    "model_name": "formula-det-yolo",
+    "img_size": 1280,
+    "model_path": "/workspace/models/formula_det_yolo.pt",
+    "labels": [
+      "inline",
+      "isolated"
+    ]
+  },
+  "rec": {
+    "model_type": "",
+    "model_name": "formula-rec-unimernet",
+    "model_path": "/workspace/models/unimernet"
+  }
+}
