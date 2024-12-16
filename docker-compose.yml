@@ -1,7 +1,7 @@
 services:
   layout_server_doclayoutyolo:
     container_name: layout_server_doclayoutyolo
-    image: registry.cn-beijing.aliyuncs.com/yuemengrui/ai:pytorch2.1.2-cuda12.1-cudnn8-ubuntu20.04-py311-0.2
+    image: registry.cn-beijing.aliyuncs.com/yuemengrui/ai:pytorch2.4.0-cuda12.1-cudnn9-ubuntu20.04-py311-0.1
     command: [ "/bin/bash", "-c", "/workspace/Layout_Analysis/docker_run.sh" ]
     volumes:
       - ./Layout_Analysis:/workspace/Layout_Analysis  # 挂载服务源码
@@ -30,7 +30,7 @@ services:
 
   layout_server_yolov10l:
     container_name: layout_server_yolov10l
-    image: registry.cn-beijing.aliyuncs.com/yuemengrui/ai:pytorch2.1.2-cuda12.1-cudnn8-ubuntu20.04-py311-0.2
+    image: registry.cn-beijing.aliyuncs.com/yuemengrui/ai:pytorch2.4.0-cuda12.1-cudnn9-ubuntu20.04-py311-0.1
     command: [ "/bin/bash", "-c", "/workspace/Layout_Analysis/docker_run.sh" ]
     volumes:
       - ./Layout_Analysis:/workspace/Layout_Analysis
@@ -59,7 +59,7 @@ services:
 
   layout_server_yolom960:
     container_name: layout_server_yolom960
-    image: registry.cn-beijing.aliyuncs.com/yuemengrui/ai:pytorch2.1.2-cuda12.1-cudnn8-ubuntu20.04-py311-0.2
+    image: registry.cn-beijing.aliyuncs.com/yuemengrui/ai:pytorch2.4.0-cuda12.1-cudnn9-ubuntu20.04-py311-0.1
     command: [ "/bin/bash", "-c", "/workspace/Layout_Analysis/docker_run.sh" ]
     volumes:
       - ./Layout_Analysis:/workspace/Layout_Analysis
@@ -89,7 +89,7 @@ services:
 
   table_server_internvl2_1b:
     container_name: table_server_internvl2_1b
-    image: registry.cn-beijing.aliyuncs.com/yuemengrui/ai:pytorch2.1.2-cuda12.1-cudnn8-ubuntu20.04-py311-0.2
+    image: registry.cn-beijing.aliyuncs.com/yuemengrui/ai:pytorch2.4.0-cuda12.1-cudnn9-ubuntu20.04-py311-0.1
     command: [ "/bin/bash", "-c", "/workspace/Table_Parser/docker_run.sh" ]
     volumes:
       - ./Table_Parser:/workspace/Table_Parser
@@ -118,7 +118,7 @@ services:
 
   formula_server:
     container_name: formula_server
-    image: registry.cn-beijing.aliyuncs.com/yuemengrui/ai:pytorch2.1.2-cuda12.1-cudnn8-ubuntu20.04-py311-0.2
+    image: registry.cn-beijing.aliyuncs.com/yuemengrui/ai:pytorch2.4.0-cuda12.1-cudnn9-ubuntu20.04-py311-0.1
     command: [ "/bin/bash", "-c", "/workspace/Formula_Server/docker_run.sh" ]
     volumes:
       - ./Formula_Server:/workspace/Formula_Server
