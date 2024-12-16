@@ -39,7 +39,7 @@ def nms(boxes, thresh=0.3):
 
 class LayoutYOLO:
     def __init__(self, model_path: str, img_size: int, labels: list, model_type='yolo', device='cuda', **kwargs):
-        if model_type == 'doclayout_yolo':
+        if 'doclayout' in model_type:
             self.model = YOLOv10(model_path)
         else:
             self.model = YOLO(model_path)

@@ -4,9 +4,9 @@ services:
     image: registry.cn-beijing.aliyuncs.com/yuemengrui/ai:pytorch2.1.2-cuda12.1-cudnn8-ubuntu20.04-py311-0.2
     command: [ "/bin/bash", "-c", "/workspace/Layout_Analysis/docker_run.sh" ]
     volumes:
-      - ./Layout_Analysis:/workspace/Layout_Analysis
-      - ./Layout_Analysis/configs/model_layout_yolo.json:/workspace/model_config.json
-      - ./Models/Layout/doclayout_yolo.pt:/workspace/models/doclayout_yolo.pt
+      - ./Layout_Analysis:/workspace/Layout_Analysis  # 挂载服务源码
+      - ./Layout_Analysis/configs/model_layout_yolo.json:/workspace/model_config.json  # 挂载配置文件
+      - ./Models/Layout/doclayout_yolo.pt:/workspace/models/doclayout_yolo.pt  # 挂载与配置文件对应的模型
     ports:
       - "24680:24680"
     restart: unless-stopped
@@ -66,7 +66,7 @@ services:
       - ./Layout_Analysis/configs/model_yolom_960.json:/workspace/model_config.json
       - ./Models/Layout/layout_m_960.pt:/workspace/models/layout_m_960.pt
     ports:
-      - "24681:24680"
+      - "24682:24680"
     restart: unless-stopped
     networks:
       - ainet
@@ -96,7 +96,7 @@ services:
       - ./Table_Parser/configs/structtable-internvl2-1b.json:/workspace/model_config.json
       - ./Models/Table/StructTable-InternVL2-1B:/workspace/models/StructTable-InternVL2-1B
     ports:
-      - "24682:24680"
+      - "24683:24680"
     restart: unless-stopped
     networks:
       - ainet
@@ -126,7 +126,7 @@ services:
       - ./Models/Formula/det/formula_det_yolo.pt:/workspace/models/formula_det_yolo.pt
       - ./Models/Formula/rec/unimernet_base:/workspace/models/unimernet
     ports:
-      - "24683:24680"
+      - "24684:24680"
     restart: unless-stopped
     networks:
       - ainet
