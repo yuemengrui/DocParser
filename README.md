@@ -1,6 +1,6 @@
-# DocParser
+# [DocParser](https://github.com/yuemengrui/DocParser.git)
 
-文档解析器，集成各种文档解析的服务，统一使用FastAPI服务，一秒部署使用，就是快
+文档解析器，集成各种文档解析的服务，统一使用FastAPI服务，可快速部署使用
 
 ##### Layout_Analysis: 版面分析服务
 
@@ -43,14 +43,23 @@
 |------|------|----------|
 | 1G   | 5G   | 2.5G     |
 
+## 模型下载
+
+访问[模型仓库](https://huggingface.co/yuemengrui/Docparser)下载后将Models目录置于项目目录下
+
 ## 效果展示
 
 ##### 版面分析
-![](/assets/layout_1.jpg)
-![](/assets/layout_2.jpg)
+
+![](https://github.com/yuemengrui/DocParser/tree/main/assets/layout_1.jpg)
+![](https://github.com/yuemengrui/DocParser/tree/main/assets/layout_2.jpg)
+
 ##### 表格解析
-![](/assets/table_parser.png)
+
+![](https://github.com/yuemengrui/DocParser/tree/main/assets/table_parser.png)
+
 ##### 公式检测与识别
-![](/assets/formula_det_1.jpg)
-![](/assets/formula_rec.jpg)
+
+![](https://github.com/yuemengrui/DocParser/tree/main/assets/formula_det_1.jpg)
+![](https://github.com/yuemengrui/DocParser/tree/main/assets/formula_rec.jpg)
 
