@@ -51,15 +51,15 @@
 
 ##### 版面分析
 
-![](https://github.com/yuemengrui/DocParser/tree/main/assets/layout_1.jpg)
-![](https://github.com/yuemengrui/DocParser/tree/main/assets/layout_2.jpg)
+![](/assets/layout_1.jpg)
+![](/assets/layout_2.jpg)
 
 ##### 表格解析
 
-![](https://github.com/yuemengrui/DocParser/tree/main/assets/table_parser.png)
+![](/assets/table_parser.png)
 
 ##### 公式检测与识别
 
-![](https://github.com/yuemengrui/DocParser/tree/main/assets/formula_det_1.jpg)
-![](https://github.com/yuemengrui/DocParser/tree/main/assets/formula_rec.jpg)
+![](/assets/formula_det_1.jpg)
+![](/assets/formula_rec.jpg)
 
